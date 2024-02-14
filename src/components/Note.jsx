@@ -3,17 +3,10 @@ import React, {useState} from "react";
 import DeleteIcon from "@material-ui/icons/Delete"; 
 
 function Note(props) {
+  
+  //Calls the deleteNote function in App.jsx
   function handleClick() {
     props.onDelete(props.id);
-  }
-
-  function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
   }
 
   return (

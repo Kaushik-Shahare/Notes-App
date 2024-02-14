@@ -5,29 +5,23 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 
 function App() {
+  //Create a state to store the notes
   const [notes, setNotes] = useState([]);
 
+  //Add new note to the array
   function addNote(newNote) {
     setNotes(prevNotes => {
       return [...prevNotes, newNote];
     });
   }
 
+  //Delete a note from the array
   function deleteNote(id) {
     setNotes(prevNotes => {
       return prevNotes.filter((noteItem, index) => {
         return index !== id;
       });
     });
-  }
-
-  function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
   }
 
   return (
@@ -39,7 +33,7 @@ function App() {
           <Note
             key={index}
             id={index}
-            color = {getRandomColor()} 
+            color = {noteItem.color} 
             title={noteItem.title}
             content={noteItem.content}
             onDelete={deleteNote}
